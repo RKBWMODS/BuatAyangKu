@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Ku Sama Ayang</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; scroll-behavior: smooth; }
+        body { background: linear-gradient(135deg, #ff758c, #ff7eb3); color: white; text-align: center; overflow-x: hidden; }
+        section { padding: 50px 20px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
+        /* Animasi Teks Berjalan */
+        .marquee { width: 100%; background: rgba(255, 255, 255, 0.2); padding: 1px; font-size: 18px; font-weight: bold; white-space: nowrap; overflow: hidden; }
+        .marquee span { display: inline-block; animation: marquee 35s linear infinite; }
+        @keyframes marquee { from { transform: translateX(50%); } to { transform: translateX(-100%); } }
+
+        /* Galeri Foto */
+        .gallery-container { width: 90%; max-width: 1000px; display: flex; gap: 20px; padding: 20px; flex-wrap: wrap; justify-content: center; }
+        .gallery-container img { width: 250px; height: 300px; object-fit: cover; border-radius: 10px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); transition: transform 0.3s; cursor: pointer; }
+        .gallery-container img:hover { transform: scale(1.1); }
+
+        /* Modal (Popup Gambar Full) */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        .modal img { max-width: 80%; max-height: 80%; border-radius: 10px; box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5); }
+        .modal-text { margin-top: 15px; font-size: 18px; font-weight: bold; }
+        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 30px; color: white; cursor: pointer; }
+
+        /* Tombol */
+        .button-container { margin-top: 20px; display: flex; flex-direction: column; gap: 15px; }
+        .button {
+            display: flex; align-items: center; justify-content: center; width: 250px; padding: 12px;
+            background-color: white; color: black; border-radius: 8px; font-size: 18px; font-weight: bold;
+            text-decoration: none; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .button:hover { transform: scale(1.05); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); }
+        .button img { width: 24px; height: 24px; margin-right: 10px; }
+
+        /* Efek Bintang Jatuh */
+        .star {
+            position: absolute;
+            width: 10px; height: 10px;
+            background: white;
+            border-radius: 1000%;
+            opacity: 0.100;
+            animation: falling 10s linear infinite;
+        }
+        @keyframes falling {
+            from { transform: translateY(-400vh); opacity: 1; }
+            to { transform: translateY(1000vh); opacity: 0; }
+        }
+
+        /* Musik */
+        .music-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        .music-button {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: white; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animasi Teks Berjalan -->
+    <div class="marquee"><span>❤ Buat Ayang Tersayang, Aku Sayang Banget Sama Kamu ❤ Jangan Suka Ngambek Terus Nanti Aku Kesepian ❤ Kamu Spesial Jadi Tolong Jaga Perasaanku Juga Ya Manis ❤ Kamu Itu Berhasil Menangin Semua Dan Berhasil Buat Aku Sayang Sedalam Ini Jangan Tinggalin Aku Ya Sayang Acuu ❤</span></div>
+
+    <section>
+        <h1>🥰 Buat Ayang 🥰</h1>
+        <p>Lihat Kebawah Ya Ayang</p>
+    </section>
+
+    <section>
+       <div class="gallery-container">
+       <img src="https://i.ibb.co/Rkzt468x/de92ea98194c.jpg" alt="Kecapean Ya Ayang🥰" onclick="openModal(this)">
+       <img src="https://i.ibb.co/996hxMkw/04b1d54ebea4.jpg" alt="Ututu Peluk Ayang🥺" onclick="openModal(this)">
+       <img src="https://i.ibb.co/bSFjXhG/87979a4ee92e.jpg" alt="Ngambek mulu hehe🥲" onclick="openModal(this)">
+       <img src="https://i.ibb.co/wrdVVWxJ/b30ab0e3a33a.jpg" alt="Ayang Acuu😚" onclick="openModal(this)">
+       <img src="https://i.ibb.co/pvbvYYd9/9e712e8eb39a.jpg" alt="Ngangenin Banget🤗" onclick="openModal(this)">
+       <img src="https://i.ibb.co/LzKzmFcr/8680e2d1e9da.jpg" alt="Sipaling Suka Ngambek🫣" onclick="openModal(this)">
+       <img src="https://i.ibb.co/j9x6ZqsF/84c3bb142af2.jpg" alt="Senyumnya Manis Banget😝˜­" onclick="openModal(this)">
+     </div>
+
+        <!-- Tombol Chat Ayang & Mabar -->
+        <div class="button-container">
+            <a href="https://wa.me/6281522884618" class="button" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                CHAT AYANG
+            </a>
+            <a href="freefire://launch" class="button">
+                <img src="https://i.ibb.co/MyYVBV3J/f3abad50f00b.jpg" alt="Free Fire" />
+                MABAR YU AYANG
+            </a>
+        </div>
+    </section>
+
+    <!-- Modal (Popup) -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="">
+        <div class="modal-text" id="modalText"></div>
+    </div>
+
+    <!-- Musik -->
+    <div class="music-container">
+        <div class="music-button" onclick="toggleMusic()">💓</div>
+        <audio id="backgroundMusic" loop>
+            <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <script>
+        function openModal(imgElement) {
+            document.getElementById("modalImage").src = imgElement.src;
+            document.getElementById("modalText").innerText = imgElement.alt;
+            document.getElementById("imageModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        function toggleMusic() {
+            var music = document.getElementById("backgroundMusic");
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+
+        // Efek Bintang Jatuh
+        setInterval(() => {
+            let star = document.createElement("div");
+            star.className = "star";
+            star.style.left = Math.random() * 100 + "vw";
+            document.body.appendChild(star);
+            setTimeout(() => star.remove(), 3000);
+        }, 300);
+    </script>
+
+</body>
+  </html>
