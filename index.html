@@ -82,17 +82,24 @@
        <img src="https://i.ibb.co/wFcpW7TX/67742a0a7ee9.jpg" alt="Ganteng Kamu Wleekk😆" onclick="openModal(this)">
      </div>
         
-<!-- Tombol Chat dan Mabar -->
+<!-- Tombol Chat, Kata Romantis, dan Mabar -->
 <div class="button-container">
     <a href="https://wa.me/6281522884618" class="button" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
         CHAT AYANG
     </a>
+    
+    <!-- Tombol Kata Romantis -->
+    <button class="button" onclick="tampilkanKataRomantis()">
+        KLICK YANG
+    </button>
+    
     <a href="freefire://launch" class="button">
         <img src="https://i.ibb.co/MyYVBV3J/f3abad50f00b.jpg" alt="Free Fire" />
         MABAR YU AYANG
     </a>
 </div>
+<div id="kataRomantis" style="margin-top: 15px; font-size: 20px; font-weight: bold; color: white;"></div>
     </section>
 
     <!-- Modal (Popup) -->
@@ -109,6 +116,28 @@
     </div>
 
     <script>
+    	function tampilkanKataRomantis() {
+        let kataKata = [
+            "Aku sayang banget sama kamu ❤️",
+            "Kamu itu bagaikan bintang di malam yang gelap, dan selalu bersinar di hati aku✨",
+            "Setiap hari bersamamu adalah hadiah terindah 🎁",
+            "Kamu adalah alasan aku tersenyum setiap hari 😊",
+            "Aku nggak butuh dunia kalau aku punya kamu 💖",
+            "Cintaku padamu seperti angka 8, tak terbatas 😂",
+            "Peluk aku terus ya, biar aku merasa aman 💞",
+            "Aku janji bakal selalu ada buat kamu, apapun yang terjadi 💕",
+            "Maaf ya aku banyak salah sama ayang, Aku syg ayang🥰",
+            "Kamu Wanita Tercantik Terbaik Tersayang Setelah Ibuku Jaga aku ya syg😊",
+            "Jangan pernah tinggalkan aku ya, karena aku nggak bisa tanpamu❤️"
+        ];
+        
+        // Pilih kata romantis secara acak
+        let kataRandom = kataKata[Math.floor(Math.random() * kataKata.length)];
+        
+        // Tampilkan kata romantis
+        document.getElementById("kataRomantis").innerText = kataRandom;
+    }
+    
         function openModal(imgElement) {
             document.getElementById("modalImage").src = imgElement.src;
             document.getElementById("modalText").innerText = imgElement.alt;
