@@ -14,7 +14,56 @@
         .marquee span { display: inline-block; animation: marquee 35s linear infinite; }
         @keyframes marquee { from { transform: translateX(50%); } to { transform: translateX(-100%); } }
 
-        /* Galeri Foto */
+        /* Peti Hadiah */
+.chest-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.chest-container img {
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.chest-container img:hover {
+    transform: scale(1.1);
+}
+
+/* Efek Goyang Saat Diklik */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+}
+
+/* Efek Fade-in Hadiah */
+.hidden {
+    display: none;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: yellow;
+    margin-top: 10px;
+    opacity: 0;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+        
         .gallery-container { width: 90%; max-width: 1000px; display: flex; gap: 20px; padding: 20px; flex-wrap: wrap; justify-content: center; }
         .gallery-container img { width: 250px; height: 300px; object-fit: cover; border-radius: 10px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); transition: transform 0.3s; cursor: pointer; }
         .gallery-container img:hover { transform: scale(1.1); }
@@ -87,8 +136,8 @@
 <div class="chest-container">
     <img id="chestClosed" src="https://i.ibb.co/8cT6zCc/closed-chest.png" alt="Buka Peti Ayang" onclick="openChest()">
     <div id="chestReward" class="hidden">
-        <img src="https://i.ibb.co/3pL7x08/opened-chest.png" alt="Peti Terbuka">
-        <p>🎁 Ayang Dapat Hadiah Spesial! 🎁</p>
+        <img src="https://i.ibb.co/3pL7x08/opened-chest.png" alt="Peti Terbuka" class="chest-open">
+        <p class="reward-text">🎁 Ayang Dapat Hadiah Spesial! 🎁</p>
     </div>
 </div>
 
