@@ -18,13 +18,13 @@
         .gallery-container img { width: 250px; height: 300px; object-fit: cover; border-radius: 10px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); transition: transform 0.3s; cursor: pointer; }
         .gallery-container img:hover { transform: scale(1.1); }
 
-        /* Modal (Popup Gambar Full) */
+        
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; flex-direction: column; }
         .modal img { max-width: 80%; max-height: 80%; border-radius: 10px; box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5); }
         .modal-text { margin-top: 15px; font-size: 18px; font-weight: bold; }
         .close-modal { position: absolute; top: 20px; right: 20px; font-size: 30px; color: white; cursor: pointer; }
 
-        /* Tombol */
+        
         .button-container { margin-top: 20px; display: flex; flex-direction: column; gap: 15px; }
         .button {
             display: flex; align-items: center; justify-content: center; width: 250px; padding: 12px;
@@ -35,7 +35,7 @@
         .button:hover { transform: scale(1.05); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); }
         .button img { width: 24px; height: 24px; margin-right: 10px; }
 
-        /* Efek Bintang Jatuh */
+        
         .star {
             position: absolute;
             width: 10px; height: 10px;
@@ -78,7 +78,7 @@
 </head>
 <body>
 
-    <!-- Animasi Teks Berjalan -->
+    
     <div class="marquee"><span>❤ Buat Ayang Tersayang, Aku Sayang Banget Sama Kamu ❤ Jangan Suka Ngambek Terus Nanti Aku Kesepian ❤ Kamu Spesial Jadi Tolong Jaga Perasaanku Juga Ya Manis ❤ Kamu Itu Berhasil Menangin Semua Dan Berhasil Buat Aku Sayang Sedalam Ini Jangan Tinggalin Aku Ya Sayang Acuu ❤</span></div>
 
     <section>
@@ -99,14 +99,14 @@
        <img src="https://i.ibb.co/wFcpW7TX/67742a0a7ee9.jpg" alt="Ganteng Kamu Wleekk😆" onclick="openModal(this)">
      </div>
         
-<!-- Tombol Chat, Kata Romantis, dan Mabar -->
+
 <div class="button-container">
     <a href="https://wa.me/6281522884618" class="button" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
         CHAT AYANG
     </a>
     
-    <!-- Tombol Kata Romantis -->
+    
     <button class="button" onclick="tampilkanKataRomantis()">
     	<img src="https://i.ibb.co/ycCGv8st/72288954c9bf.webp" alt="Kata Romantis" />
         KLICK AYANG
@@ -130,14 +130,14 @@
 <div id="kataRomantis" style="margin-top: 15px; font-size: 20px; font-weight: bold; color: white;"></div>
     </section>
 
-    <!-- Modal (Popup) -->
+    
     <div id="imageModal" class="modal">
         <span class="close-modal" onclick="closeModal()">&times;</span>
         <img id="modalImage" src="">
         <div class="modal-text" id="modalText"></div>
     </div>
     
-    <!-- Modal Tanggal Jadian -->
+    
 <div id="tanggalJadianModal" class="modal">
     <span class="close-modal" onclick="closeTanggalJadian()">&times;</span>
     <div class="tanggal-container">
@@ -149,7 +149,7 @@
     </div>
 </div>
 
-<!-- Modal Pantun Ayang -->
+
 <div id="pantunAyangModal" class="modal">
     <span class="close-modal" onclick="closePantunAyang()">&times;</span>
     <div class="tanggal-container">
@@ -158,7 +158,7 @@
     </div>
 </div>
 
- <!-- Musik dari YouTube -->
+ 
     <div class="music-container">
         <div class="music-button" onclick="toggleMusic()">💓</div>
         <iframe id="youtubeMusic" width="0" height="0" src="https://www.youtube.com/embed/YupgRveze3A?autoplay=1&loop=1&playlist=YupgRveze3A" frameborder="0" allow="autoplay"></iframe>
@@ -180,10 +180,10 @@
             "Jangan pernah tinggalkan aku ya, karena aku nggak bisa tanpamu❤️"
         ];
         
-        // Pilih kata romantis secara acak
+        
         let kataRandom = kataKata[Math.floor(Math.random() * kataKata.length)];
         
-        // Tampilkan kata romantis
+        
         document.getElementById("kataRomantis").innerText = kataRandom;
     }
     
@@ -199,7 +199,7 @@
         
 function tampilkanTanggalJadian() {
     document.getElementById("tanggalJadianModal").style.display = "flex";
-    updateWaktuJadian(); // Jalankan perhitungan waktu
+    updateWaktuJadian(); 
 }
 
 function closeTanggalJadian() {
@@ -232,7 +232,7 @@ function closePantunAyang() {
     document.getElementById("pantunAyangModal").style.display = "none";
 }
 
-// Daftar pantun romantis buat ayang
+
 let pantunList = [
     "Jalan-jalan ke Kota Tua, <br> Tak lupa meluk ayangnya <br> Ayang cantik tiada dua, <br> Ku sayang kamu SELAMANYA💕",
     "Bunga mawar harum baunya, <br> Indah mekar di tepi telaga. <br> Hati ini hanya untuknya, <br> Sayang ayang selamanya💖",
@@ -246,8 +246,8 @@ let pantunIndex = 0;
 function updatePantunAyang() {
     setInterval(() => {
         document.getElementById("pantunAyang").innerHTML = pantunList[pantunIndex];
-        pantunIndex = (pantunIndex + 1) % pantunList.length; // Loop ke pantun berikutnya
-    }, 20000); // Ganti setiap 4 detik
+        pantunIndex = (pantunIndex + 1) % pantunList.length; 
+    }, 20000); 
 }
 
         function toggleMusic() {
