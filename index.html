@@ -117,6 +117,11 @@
         TANGGAL KITA
     </button>
     
+    <button class="button" onclick="tampilkanPantunAyang()">
+    	<img src="https://i.ibb.co/W4JqtvVZ/f37b25dd3def.png" alt="pantun" />
+        SPESIAL AYANG
+    </button>
+    
     <a href="freefire://launch" class="button">
         <img src="https://i.ibb.co/MyYVBV3J/f3abad50f00b.jpg" alt="Free Fire" />
         MABAR AYANG
@@ -141,6 +146,15 @@
            Dan tanggal jadian ini semoga ga ada kata putus dari kita ya, Ayang Acu ><</p>
         <h3>✨Terus Sama Aku Ya✨</h3>
         <div id="waktuJadian" class="waktu-jadian"></div>
+    </div>
+</div>
+
+<!-- Modal Pantun Ayang -->
+<div id="pantunAyangModal" class="modal">
+    <span class="close-modal" onclick="closePantunAyang()">&times;</span>
+    <div class="tanggal-container">
+        <h2>RIZQI ❤ LIYA</h2>
+        <p id="pantunAyang" class="waktu-jadian"></p>
     </div>
 </div>
 
@@ -207,6 +221,33 @@ function updateWaktuJadian() {
         document.getElementById("waktuJadian").innerText =
             `${hari} Hari ${jam} Jam ${menit} Menit ${detik} Detik`;
     }, 1000);
+}
+
+function tampilkanPantunAyang() {
+    document.getElementById("pantunAyangModal").style.display = "flex";
+    updatePantunAyang();
+}
+
+function closePantunAyang() {
+    document.getElementById("pantunAyangModal").style.display = "none";
+}
+
+// Daftar pantun romantis buat ayang
+let pantunList = [
+    "Jalan-jalan ke Kota Tua, <br> Tak lupa meluk ayangnya <br> Ayang cantik tiada dua, <br> Ku sayang kamu SELAMANYA💕",
+    "Bunga mawar harum baunya, <br> Indah mekar di tepi telaga. <br> Hati ini hanya untuknya, <br> Sayang ayang selamanya💖",
+    "Burung merpati terbang tinggi, <br> Hinggap di dahan pohon waru. <br> Ayang selalu di hati, <br> Aku cinta kamu selalu😘",
+    "Ke pasar beli rambutan, <br> Jangan lupa beli duku. <br> Ayang manis bukan main, <br> Aku sayang cuma sama kamu💞",
+    "Bulan purnama bersinar terang, <br> Di langit malam yang indah. <br> Ayangku manis tak terbilang, <br> Cinta kita takkan berubah💓"
+];
+
+let pantunIndex = 0;
+
+function updatePantunAyang() {
+    setInterval(() => {
+        document.getElementById("pantunAyang").innerHTML = pantunList[pantunIndex];
+        pantunIndex = (pantunIndex + 1) % pantunList.length; // Loop ke pantun berikutnya
+    }, 12000); // Ganti setiap 4 detik
 }
 
         function toggleMusic() {
