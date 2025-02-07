@@ -48,6 +48,23 @@
             from { transform: translateY(-550vh); opacity: 1; }
             to { transform: translateY(1200vh); opacity: 0; }
         }
+        
+        .tanggal-container {
+    background: white;
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
+}
+.waktu-jadian {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff4081;
+    margin-top: 15px;
+}
 
         /* Musik */
         .music-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
@@ -91,12 +108,18 @@
     
     <!-- Tombol Kata Romantis -->
     <button class="button" onclick="tampilkanKataRomantis()">
-        KLICK YANG
+    	<img src="https://i.ibb.co/ycCGv8st/72288954c9bf.webp" alt="Kata Romantis" />
+        KLICK AYANG
+    </button>
+    
+    <button class="button" onclick="tampilkanTanggalJadian()">
+    	<img src="https://i.ibb.co.com/8gHcD1hk/4e15f336b0c1.png" alt="kalender" />
+        TANGGAL KITA
     </button>
     
     <a href="freefire://launch" class="button">
         <img src="https://i.ibb.co/MyYVBV3J/f3abad50f00b.jpg" alt="Free Fire" />
-        MABAR YU AYANG
+        MABAR AYANG
     </a>
 </div>
 <div id="kataRomantis" style="margin-top: 15px; font-size: 20px; font-weight: bold; color: white;"></div>
@@ -108,6 +131,18 @@
         <img id="modalImage" src="">
         <div class="modal-text" id="modalText"></div>
     </div>
+    
+    <!-- Modal Tanggal Jadian -->
+<div id="tanggalJadianModal" class="modal">
+    <span class="close-modal" onclick="closeTanggalJadian()">&times;</span>
+    <div class="tanggal-container">
+        <h2>💖 HAI SAYANG 💖</h2>
+        <p>Malacih ya udah milih aku, aku sayang banget sama kamu.  
+           Dan tanggal jadian ini semoga ga ada kata putus dari kita ya, Ayang Acu ><</p>
+        <h3>✨Terus Sama Aku Ya✨</h3>
+        <div id="waktuJadian" class="waktu-jadian"></div>
+    </div>
+</div>
 
  <!-- Musik dari YouTube -->
     <div class="music-container">
@@ -147,6 +182,32 @@
         function closeModal() {
             document.getElementById("imageModal").style.display = "none";
         }
+        
+function tampilkanTanggalJadian() {
+    document.getElementById("tanggalJadianModal").style.display = "flex";
+    updateWaktuJadian(); // Jalankan perhitungan waktu
+}
+
+function closeTanggalJadian() {
+    document.getElementById("tanggalJadianModal").style.display = "none";
+}
+
+function updateWaktuJadian() {
+    let tanggalJadian = new Date("2025-01-29T00:00:00").getTime();
+
+    setInterval(() => {
+        let sekarang = new Date().getTime();
+        let selisih = sekarang - tanggalJadian;
+
+        let hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+        let jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+        let detik = Math.floor((selisih % (1000 * 60)) / 1000);
+
+        document.getElementById("waktuJadian").innerText =
+            `${hari} Hari ${jam} Jam ${menit} Menit ${detik} Detik`;
+    }, 1000);
+}
 
         function toggleMusic() {
           var youtubeFrame = document.getElementById("youtubeMusic");
